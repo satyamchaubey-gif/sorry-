@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Radhika 💜</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#7b2ff7,#f107a3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.phone{
+  width:360px;
+  max-width:95%;
+  height:680px;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(18px);
+  border-radius:35px;
+  padding:25px;
+  color:white;
+  text-align:center;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+  position:relative;
+  overflow:hidden;
+}
+
+.page{
+  display:none;
+  height:100%;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  animation:fade .6s ease;
+}
+
+.page.active{
+  display:flex;
+}
+
+h1{
+  font-size:34px;
+  margin:15px 0;
+}
+
+p{
+  font-size:17px;
+  line-height:1.7;
+  margin:10px 0;
+}
+
+.emoji{
+  font-size:65px;
+  animation:beat 1.2s infinite;
+}
+
+.bts{
+  background:white;
+  color:#7b2ff7;
+  padding:8px 15px;
+  border-radius:20px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+button{
+  margin-top:25px;
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#8a2be2;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.small{
+  font-size:14px;
+  opacity:.85;
+}
+
+.heart{
+  position:absolute;
+  color:white;
+  opacity:.5;
+  animation:float 7s linear infinite;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateX(40px);}
+  to{opacity:1; transform:translateX(0);}
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.15);}
+}
+
+@keyframes float{
+  from{transform:translateY(700px);}
+  to{transform:translateY(-100px);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="phone">
+
+  <div class="page active" id="page1">
+    <div class="bts">For My BTS ARMY Girl 💜</div>
+    <div class="emoji">🥺💜</div>
+    <h1>Sorry Radhika</h1>
+    <p>
+      Mujhe pata hai tum thodi naraz ho...
+      aur honestly, mujhe bilkul accha nahi lag raha.
+    </p>
+    <p class="small">Please next page open karo...</p>
+    <button onclick="nextPage(2)">Next 💜</button>
+  </div>
+
+  <div class="page" id="page2">
+    <div class="emoji">🌙✨</div>
+    <h1>Listen...</h1>
+    <p>
+      Main perfect nahi hoon, par tum mere liye genuinely special ho.
+    </p>
+    <p>
+      Agar meri kisi baat se tum hurt hui ho,
+      to main dil se sorry bolta hoon.
+    </p>
+    <p>
+      Tumhari smile meri favourite thing hai,
+      aur main nahi chahta ki meri wajah se woh kam ho.
+    </p>
+    <button onclick="nextPage(3)">Next 🫶</button>
+  </div>
+
+  <div class="page" id="page3">
+    <div class="emoji">💜</div>
+    <h1>One Last Thing</h1>
+    <p>
+      Radhika, tum meri life ki ek beautiful memory nahi,
+      ek beautiful feeling ho.
+    </p>
+    <p>
+      Please gussa thoda sa side mein rakh do...
+      aur mujhe ek chhota sa chance de do.
+    </p>
+    <button onclick="showLove()">Maaf Karogi? 💜</button>
+    <p id="answer" style="display:none;margin-top:25px;font-weight:bold;">
+      Thank you Radhika 💜<br>
+      Borahae forever 🫰✨
+    </p>
+  </div>
+
+</div>
+
+<script>
+function nextPage(num){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page'+num).classList.add('active');
+}
+
+function showLove(){
+  document.getElementById('answer').style.display = 'block';
+}
+
+for(let i=0;i<30;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML=["💜","✨","♡","🫰"][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+"%";
+  h.style.fontSize=(Math.random()*20+15)+"px";
+  h.style.animationDuration=(Math.random()*5+5)+"s";
+  document.body.appendChild(h);
+}
+</script>
+
+</body>
+</html>
